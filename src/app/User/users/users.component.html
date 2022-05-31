@@ -1,11 +1,7 @@
 <h3>Users Component</h3>
-<label class="form-label" for="username">User Name</label>
-<input type="text" class="form-control my-2" id="username"
-        [(ngModel)]="name">
-<button class="btn btn-primary" [disabled]="!btnStatus"
-(click)="createUser()">Create</button>
+<app-add-user (userCreated)="createUser($event)"></app-add-user>
 <br>
-{{ name}}
+<!--{{ name}}-->
 <div *ngIf="users.length > 0 ; else noUsers ">
   <app-user *ngFor="let user of users" [name]="user"></app-user>
 </div>
